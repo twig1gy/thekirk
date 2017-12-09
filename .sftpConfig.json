@@ -1,0 +1,24 @@
+{
+    "host": "ftp.watts-web.com",
+    "port": 21,
+    "username": "kirky@thekirk.watts-web.com",
+    "password": "cN07@d^*",
+    "protocol": "ftp",
+    "privateKeyPath": null,
+    "passphrase": null,
+    "passive": false,
+    "remotePath": "./",
+    "uploadOnSave": false,
+    "syncMode": "update",
+    "watcher": {
+        "files": false,
+        "autoUpload": true,
+        "autoDelete": true
+    },
+    "ignore": [
+        "**/.vscode",
+        "**/.git",
+        "**/.DS_Store",
+        "**/.sftpConfig.json"
+    ]
+}
