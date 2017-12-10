@@ -19,7 +19,7 @@
                 'container' => 'nav',
                 'menu' => 'top',
                 'menu_class' => 'pull-right',
-                'sort_column' => 'menu_order, post_title' )
+                'sort')
          ); ?>
         
         <!--<ul class="pull-right horizontal">

@@ -29,13 +29,7 @@ if ( function_exists('register_sidebar') ) {
   );
 }
 
-
-// function wpse_sort_nav( $query ) {
-//         if ( $query->is_main_query() && get_query_var( 'post_type' ) == 'nav_menu_item' )
-//             $query->set( 'orderby', 'ID' );
-// }
-
-// add_action( 'pre_get_posts', 'wpse_sort_nav' );
+add_post_type_support( 'page', 'excerpt' );
 add_action( 'init', 'register_menus' );
 add_action( 'wp_enqueue_scripts', 'add_assets' );
 ?>
