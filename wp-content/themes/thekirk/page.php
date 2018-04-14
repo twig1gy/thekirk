@@ -11,6 +11,35 @@
 </div>
 <div class="section">
   <div class="container">
+  <?php 
+//   $parent_id = wp_get_post_parent_id(2);
+//   print_r('parent id: ' . $parent_id);
+//   $args = array(
+// 	'sort_order' => 'asc',
+// 	'sort_column' => 'post_title',
+// 	'hierarchical' => 0,
+// 	'exclude' => '',
+// 	'include' => '',
+// 	'meta_key' => '',
+// 	'meta_value' => '',
+// 	'authors' => '',
+// 	'child_of' => 0,
+// 	'parent' => $parent_id,
+// 	'exclude_tree' => '',
+// 	'number' => '',
+// 	'offset' => 0,
+// 	'post_type' => 'page',
+// 	'post_status' => 'publish'
+// ); 
+// $pagess = get_pages($args); 
+// if(count($pagess) > 0){
+//   echo "<div class='row column'>";
+//   foreach($pagess as $pagee) {
+//     echo "<a href='".$pagee->url."'>".$pagee->title."</a> ";
+//   }
+//   echo "</div>";
+// }
+?>
     <div class="row column">
     <?php the_content() ?>
       <?php 

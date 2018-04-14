@@ -23,7 +23,6 @@
   <div class="strip center">
       <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Homepage Ticker") ) : ?>
       <?php endif;?>
-      <!--<strong>Sundays:</strong>  9:00 AM Adult Studies  <strong>|</strong>  10:00 AM  Worship (Childcare Provided)  <strong>|</strong>  11:15 AM  Sunday School For Children and Youth-->
   </div>
   <hr />
 </div>
@@ -32,26 +31,61 @@
     <div class="row">
       <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Homepage CTA") ) : ?>
       <?php endif;?>
-      <!--<div class="columns three cta" data-href="/url/to/somewhere">
-        <h3>Register now for 2016 Day Camp at The Kirk.</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
-      <div class="columns three cta">
-        <h3>Register now for 2016 Day Camp at The Kirk.</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
-      <div class="columns three cta">
-        <h3>Register now for 2016 Day Camp at The Kirk.</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
-      <div class="columns three cta">
-        <h3>Register now for 2016 Day Camp at The Kirk.</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>-->
     </div>
   </div>
 </div>
-<div id="community" class="section community para" data-bottom-top="background-position: 50% 100px;" data-top-bottom="background-position: 50% -100px;">
+<!-- iterate through 1st level pages -->
+<?php $args = array(
+	'sort_order' => 'asc',
+	'sort_column' => 'post_title',
+	'hierarchical' => 0,
+	'exclude' => '',
+	'include' => '',
+	'meta_key' => '',
+	'meta_value' => '',
+	'authors' => '',
+	'child_of' => 0,
+	'parent' => 0,
+	'exclude_tree' => '',
+	'number' => '',
+	'offset' => 0,
+	'post_type' => 'page',
+	'post_status' => 'publish'
+); 
+$pages = get_pages($args); 
+foreach($pages as $page) {
+  $deeplink = strtolower(trim( $page->post_title ));
+  $deeplink = preg_replace('/[ \/]/','',$deeplink);
+  $img_url = wp_get_attachment_url( get_post_thumbnail_id($page->ID) );
+?>
+<div id="<?php echo $deeplink ?>" class="section para community" style="background-image: url(<?php echo $img_url ?>);" data-bottom-top="background-position: 50% 100px;" data-top-bottom="background-position: 50% -100px;">
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <h2><?php echo $page->post_title ?></h2>
+        </div>
+        <div class="twelve columns">
+          <?php echo $page->post_content ?>
+        </div>
+        <!-- get children of this page. if has children, print links -->
+        
+        <div class="twelve columns sub-links">
+          <ul>
+            <?php
+              //global $id;
+              wp_list_pages( array(
+                  'title_li'    => '',
+                  'child_of'    => $page->ID,
+                  'show_date'   => 'modified',
+                  'date_format' => $date_format
+              ) );
+            ?>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--<div id="community" class="section community para" data-bottom-top="background-position: 50% 100px;" data-top-bottom="background-position: 50% -100px;">
     <div class="container">
       <div class="row">
         <div class="twelve columns">
@@ -76,6 +110,7 @@
         </div>
       </div>
     </div>
-  </div>
-  
+  </div>-->
+<?php } // end pages array ?>
+
 <?php get_footer( ); ?>

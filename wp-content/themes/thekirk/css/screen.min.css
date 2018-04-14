@@ -841,7 +841,7 @@ img.scale-with-grid {
 
 .community {
   padding-top: 2em;
-  background: #6cbcc8 url(../images/bg-teal.jpg);
+  /*background: #6cbcc8 url(../images/bg-teal.jpg);*/
   background-size: cover;
   color: #000; }
   .community h1 {

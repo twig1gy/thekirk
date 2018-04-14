@@ -1,6 +1,11 @@
 <div class="section footer">
   <div class="container">
     <div class="row">
+      <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Footer Section") ) : ?>
+      <?php endif;?>
+
+    
+<!--    
       <div class="columns two">
         <ul>
           <li><a href=""><strong>Visit</strong></a></li>
@@ -61,13 +66,13 @@
           <li><a href="">Childcare</a></li>
           <li><a href="">Key Places</a></li>
         </ul>
-      </div>
+      </div>-->
     </div>
     <div class="row">
       <div class="columns four text-center">
           <div><strong>John Knox Presbyterian Kirk</strong></div>
           <div>11430 Wornall Rd., KCMO 64110</div>
-          <div><a href="#"><i class="fa fa-fw fa-facebook-square"></i></a> <a href="#"><i class="fa fa-fw fa-twitter-square"></i></a> <a href="#"><i class="fa fa-fw fa-instagram"></i></a> <a href="#"><i class="fa fa-fw fa-envelope"></i></a></div>
+          <div><a href="facebook.com"><i class="fa fa-fw fa-facebook-square"></i></a> <a href="#"><i class="fa fa-fw fa-twitter-square"></i></a> <a href="#"><i class="fa fa-fw fa-instagram"></i></a> <a href="#"><i class="fa fa-fw fa-envelope"></i></a></div>
       </div>
       <div class="columns six text-center">
         <div><strong>Sundays</strong> 9 AM Adult Studies</div>
@@ -82,13 +87,6 @@
   </div>
 </div>
 
-
-  <!--<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
-  <!--<script src="<?php echo get_bloginfo('template_directory'); ?>/js/app.min.js"></script>-->
-  <script>
-    // Custom scripting here
-    
-  </script>
   <?php wp_footer(); ?> 
 </body>
 </html>
