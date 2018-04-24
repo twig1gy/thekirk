@@ -72,7 +72,7 @@
       <div class="columns four text-center">
           <div><strong>John Knox Presbyterian Kirk</strong></div>
           <div>11430 Wornall Rd., KCMO 64110</div>
-          <div><a href="facebook.com"><i class="fa fa-fw fa-facebook-square"></i></a> <a href="#"><i class="fa fa-fw fa-twitter-square"></i></a> <a href="#"><i class="fa fa-fw fa-instagram"></i></a> <a href="#"><i class="fa fa-fw fa-envelope"></i></a></div>
+          <div><a href="//facebook.com/JohnKnoxKirk"><i class="fa fa-fw fa-facebook-square"></i></a> <a href="//twitter.com/thekirkofkc"><i class="fa fa-fw fa-twitter-square"></i></a> <a href="//instagram.com/thekirkofkc"><i class="fa fa-fw fa-instagram"></i></a> <a href="mailto:office@kckirk.org"><i class="fa fa-fw fa-envelope"></i></a></div>
       </div>
       <div class="columns six text-center">
         <div><strong>Sundays</strong> 9 AM Adult Studies</div>
