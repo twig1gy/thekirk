@@ -88,6 +88,42 @@ function change_menu($items){
   return $items;
 }
 
+/* lighten fonts - scheme 1 */
+function add_featured_image_display_settings( $content, $post_id ) {
+	$field_id    = 'inverse_color_scheme';
+  $field_id2    = 'inverse2_color_scheme';
+	$field_value = esc_attr( get_post_meta( $post_id, $field_id, true ) );
+  $field_value2 = esc_attr( get_post_meta( $post_id, $field_id2, true ) );
+	$field_text  = esc_html__( 'Orange background', 'generatewp' );
+  $field_text2  = esc_html__( 'Navy background', 'generatewp' );
+	$field_state = checked( $field_value, 1, false);
+  $field_state2 = checked( $field_value2, 1, false);
+
+	$field_label = sprintf(
+	    '<p><label for="%1$s"><input type="checkbox" name="%1$s" id="%1$s" value="%2$s" %3$s> %4$s</label></p>',
+	    $field_id, $field_value, $field_state, $field_text
+	);
+  $field_label2 = sprintf(
+	    '<p><label for="%1$s"><input type="checkbox" name="%1$s" id="%1$s" value="%2$s" %3$s> %4$s</label></p>',
+	    $field_id2, $field_value2, $field_state2, $field_text2
+	);
+
+	return $content .= $field_label . $field_label2;
+}
+add_filter( 'admin_post_thumbnail_html', 'add_featured_image_display_settings', 10, 2 );
+function save_featured_image_display_settings( $post_ID, $post, $update ) {
+	$field_id    = 'inverse_color_scheme';
+  $field_id2    = 'inverse2_color_scheme';
+	$field_value = isset( $_REQUEST[ $field_id ] ) ? 1 : 0;
+  $field_value2 = isset( $_REQUEST[ $field_id2 ] ) ? 1 : 0;
+
+	update_post_meta( $post_ID, $field_id, $field_value );
+  update_post_meta( $post_ID, $field_id2, $field_value2 );
+}
+add_action( 'save_post', 'save_featured_image_display_settings', 10, 3 );
+
+
+
 //add_filter('wp_nav_menu_objects', 'change_menu');
 add_post_type_support( 'page', 'excerpt' );
 add_theme_support( 'post-thumbnails' );

@@ -57,8 +57,10 @@ foreach($pages as $page) {
   $deeplink = strtolower(trim( $page->post_title ));
   $deeplink = preg_replace('/[ \/]/','',$deeplink);
   $img_url = wp_get_attachment_url( get_post_thumbnail_id($page->ID) );
+  $orange_bg = $page->inverse_color_scheme;
+  $blue_bg = $page->inverse2_color_scheme;
 ?>
-<div id="<?php echo $deeplink ?>" class="section para community" style="background-image: url(<?php echo $img_url ?>);" data-bottom-top="background-position: 50% 100px;" data-top-bottom="background-position: 50% -100px;">
+<div id="<?php echo $deeplink ?>" class="section para community <?= ($orange_bg ? 'lighten' : ($blue_bg ? 'navy' : '')); ?>" style="background-image: url(<?php echo $img_url ?>);" data-bottom-top="background-position: 50% 100px;" data-top-bottom="background-position: 50% -100px;">
     <div class="container">
       <div class="row">
         <div class="twelve columns">
